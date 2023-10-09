@@ -27,3 +27,6 @@ jar{
         attributes 'Main-Class':'Game'
     }
 }
+wrapper {
+    gradleVersion = '8.3'
+}
