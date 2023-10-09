@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
 }
 
 group = 'org.example'
@@ -18,6 +19,8 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+test.finalizedBy jacocoTestReport
+jacocoTestReport.dependsOn test
 
 jar{
     manifest {
