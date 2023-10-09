@@ -2,7 +2,7 @@ import Pieces.*;
 import java.util.HashMap;
 
 public class Board {
-    HashMap<Coordinates, Piece> pieces = new HashMap<Coordinates, Piece>();
+    HashMap<Coordinates, Piece> pieces = new HashMap<>();
 
     public void setPiece(Coordinates coordinates, Piece piece){
         piece.coordinates = coordinates;
