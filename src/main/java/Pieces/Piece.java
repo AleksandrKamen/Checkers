@@ -1,7 +1,7 @@
 package Pieces;
 
 
-public class Piece {
+public abstract class Piece {
     public final Color color;
     public Coordinates coordinates;
 
