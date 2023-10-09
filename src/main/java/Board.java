@@ -8,5 +8,8 @@ public class Board {
         piece.coordinates = coordinates;
         pieces.put(coordinates,piece);
     }
+    public void removePiece(Coordinates coordinates){
+        pieces.remove(coordinates);
+    }
 
 }
