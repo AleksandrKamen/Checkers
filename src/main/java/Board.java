@@ -32,8 +32,11 @@ public class Board {
     public boolean isSquareEmpty(Coordinates coordinates){
         return !pieces.containsKey(coordinates);
     } // Метод определения пустая ли клетка
-    public static boolean isSquareBlack(Coordinates coordinates) {
+    public  boolean isSquareBlack(Coordinates coordinates) {
         return (((coordinates.file.ordinal() + 1) + coordinates.rank) % 2) == 0;
+    }
+    public boolean isWhitePiece(Piece piece){
+        return piece.color == Color.White;
     }
 
 }
