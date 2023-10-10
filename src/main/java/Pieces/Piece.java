@@ -1,4 +1,7 @@
 package Pieces;
+import Board.*;
+
+import java.util.Set;
 
 public abstract class Piece {
     public final Color color;
@@ -13,6 +16,14 @@ public abstract class Piece {
         this.color = color;
         this.coordinates = coordinates;
     }
+
+    public boolean isSquareAvaibleforMove(Coordinates coordinates, Board board) {
+              return board.isSquareEmpty(coordinates);
+          }
+
+    protected abstract Set<CoordinatesShift> getPieceMove();
+
+
 
 
 

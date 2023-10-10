@@ -1,3 +1,5 @@
+package Board;
+
 import Pieces.*;
 
 public class BoardConsoleRenderer {
@@ -26,7 +28,8 @@ public class BoardConsoleRenderer {
                 }
             }
             System.out.printf("%s\n", line  + ANSI_RESET);
-        }
 
+        }
+        System.out.println();
     }
 }

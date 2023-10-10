@@ -1,3 +1,5 @@
+package Board;
+
 import Pieces.*;
 import java.util.HashMap;
 
@@ -25,7 +27,6 @@ public class Board {
             }
         }
     }
-
     public  Piece getPiece(Coordinates coordinates){
         return pieces.get(coordinates);
     }
@@ -53,5 +54,10 @@ public class Board {
             }
 
         }
+    }
+    public void movePiece(Coordinates from, Coordinates to){
+        Piece piece =  getPiece(from);
+        removePiece(from);
+        setPiece(to, piece);
     }
 }
