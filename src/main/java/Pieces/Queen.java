@@ -11,12 +11,7 @@ public class Queen extends Piece{
     }
 
     @Override
-    public boolean isSquareAvaibleforMove(Coordinates coordinates, Board board) {
-        return super.isSquareAvaibleforMove(coordinates, board);
-    }
-
-    @Override
-    protected Set<CoordinatesShift> getPieceMove() {
+    protected Set<CoordinatesShift> getPieceMove(Board board) {
         return null;
     }
 }
