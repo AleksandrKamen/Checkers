@@ -6,9 +6,6 @@ public class BoardConsoleRenderer {
     private static final String ANSI_BLACK_PIECE_COLOR = "\u001B[30m";
     private static final String ANSI_WHITE_SQUARE_BACKGROUND = "\u001B[47m";
     private static final String ANSI_BLACK_SQUARE_BACKGROUND = "\u001B[0;100m";
-    private static final String pawn = "● ";
-    private static final String queen = "© ";
-
 //    public static final String ANSI_HIGHTLIGHTED_SQUAR_BACKGROUND = "\u001B[45m";
 
     public void render(Board board){
@@ -24,7 +21,8 @@ public class BoardConsoleRenderer {
                 if (board.isSquareEmpty(coordinates)){
                     line += "  ";
                 } else{
-                    line += board.isWhitePiece(board.getPiece(coordinates))? ANSI_WHITE_PIECE_COLOR + pawn: ANSI_BLACK_PIECE_COLOR + pawn;
+                    Piece piece = board.getPiece(coordinates);
+                    line += board.isWhitePiece(piece)? ANSI_WHITE_PIECE_COLOR + piece.getUnicod(): ANSI_BLACK_PIECE_COLOR + piece.getUnicod();
                 }
             }
             System.out.printf("%s\n", line  + ANSI_RESET);

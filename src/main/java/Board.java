@@ -39,4 +39,19 @@ public class Board {
         return piece.color == Color.White;
     }
 
+    public void setQueen(){
+        for (File file : File.values()) {
+            Coordinates coordinatesW = new Coordinates(file, 8);
+            if (!isSquareEmpty(coordinatesW) && getPiece(coordinatesW).color == Color.White){
+                removePiece(coordinatesW);
+                setPiece(coordinatesW, new Queen(Color.White, coordinatesW));
+            }
+            Coordinates coordinatesB = new Coordinates(file,1);
+            if (!isSquareEmpty(coordinatesB) && getPiece(coordinatesB).color == Color.Black){
+                removePiece(coordinatesB);
+                setPiece(coordinatesB, new Queen(Color.Black, coordinatesB));
+            }
+
+        }
+    }
 }
