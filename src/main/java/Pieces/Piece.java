@@ -29,7 +29,7 @@ public abstract class Piece {
         Set<CoordinatesShift> pieceMove = getPieceMove(board);
         for (CoordinatesShift shift : pieceMove){
             if (coordinates.canShift(shift)){
-                 Coordinates newCoordinates =coordinates.shift(shift);
+                 Coordinates newCoordinates = coordinates.shift(shift);
                  if (isSquareAvaibleforMove(newCoordinates, board)){
                       SquareAvaible.add(newCoordinates);
                  }

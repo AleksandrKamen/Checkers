@@ -14,53 +14,26 @@ public class Pawn extends Piece{
       @Override
     public Set<CoordinatesShift> getPieceMove(Board board) {
         Set<CoordinatesShift> result = new HashSet<>();
+          for (int i = -1; i <=1; i++) {
+              for (int j = -1; j <=1; j++) {
+                  if (i != 0 && j != 0){
+                      try {
+                          Coordinates coordinates1 = new Coordinates(File.values()[coordinates.file.ordinal() + i], coordinates.rank + j);
+                          if (!board.isSquareEmpty(coordinates1) && board.getPiece(coordinates1).color != color) {
+                              result.add(new CoordinatesShift(i*2, j*2));
+                          }
+                      } catch (ArrayIndexOutOfBoundsException e){}
+                  }
+              }
+          }
         if (color == Color.White) {
             result.add(new CoordinatesShift(1, 1));
             result.add(new CoordinatesShift(-1, 1));
-            try {
-                Coordinates coordinates1 = new Coordinates(File.values()[coordinates.file.ordinal() + 1], coordinates.rank + 1);
-                Coordinates coordinates2 = new Coordinates(File.values()[coordinates.file.ordinal() - 1], coordinates.rank + 1);
-                Coordinates coordinates3 = new Coordinates(File.values()[coordinates.file.ordinal() - 1], coordinates.rank - 1);
-                Coordinates coordinates4 = new Coordinates(File.values()[coordinates.file.ordinal() + 1], coordinates.rank - 1);
-            if (!board.isSquareEmpty(coordinates1) && board.getPiece(coordinates1).color != color) {
-                result.add(new CoordinatesShift(2, 2));
-            }
-            if (!board.isSquareEmpty(coordinates2) && board.getPiece(coordinates2).color != color) {
-                result.add(new CoordinatesShift(-2, 2));
-            }
-            if (!board.isSquareEmpty(coordinates3) && board.getPiece(coordinates3).color != color) {
-                result.add(new CoordinatesShift(-2, -2));
-            }
-            if (!board.isSquareEmpty(coordinates4) && board.getPiece(coordinates4).color != color) {
-                result.add(new CoordinatesShift(2, -2));
-            }
-        } catch (ArrayIndexOutOfBoundsException e){}
         }
         else {
             result.add(new CoordinatesShift(-1, -1));
             result.add(new CoordinatesShift(1, -1));
-            try {
-                Coordinates coordinates1 = new Coordinates(File.values()[coordinates.file.ordinal() + 1], coordinates.rank + 1);
-                Coordinates coordinates2 = new Coordinates(File.values()[coordinates.file.ordinal() - 1], coordinates.rank + 1);
-                Coordinates coordinates3 = new Coordinates(File.values()[coordinates.file.ordinal() - 1], coordinates.rank - 1);
-                Coordinates coordinates4 = new Coordinates(File.values()[coordinates.file.ordinal() + 1], coordinates.rank - 1);
-
-                if (!board.isSquareEmpty(coordinates1) && board.getPiece(coordinates1).color != color) {
-                    result.add(new CoordinatesShift(2, 2));
-                }
-                if (!board.isSquareEmpty(coordinates2) && board.getPiece(coordinates2).color != color) {
-                    result.add(new CoordinatesShift(-2, 2));
-                }
-                if (!board.isSquareEmpty(coordinates3) && board.getPiece(coordinates3).color != color) {
-                    result.add(new CoordinatesShift(-2, -2));
-                }
-                if (!board.isSquareEmpty(coordinates4) && board.getPiece(coordinates4).color != color) {
-                    result.add(new CoordinatesShift(2, -2));
-                }
-            } catch (ArrayIndexOutOfBoundsException e){}
         }
-
         return result;
     }
-
 }
