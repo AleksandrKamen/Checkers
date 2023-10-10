@@ -3,7 +3,7 @@ plugins {
     id 'jacoco'
 }
 
-group = 'org.example'
+group = 'org.galaxy'
 version = '1.0-SNAPSHOT'
 
 repositories {
