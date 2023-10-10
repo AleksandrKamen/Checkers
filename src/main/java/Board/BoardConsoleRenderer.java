@@ -12,6 +12,7 @@ public class BoardConsoleRenderer {
 
     public void render(Board board){
         // format = background color + font color + text
+        System.out.println("   A  B  C  D  E  F  G  H");
         for (int rank = 8; rank >= 1; rank--) {
             String line = "";
             for(File file : File.values()){
@@ -27,9 +28,10 @@ public class BoardConsoleRenderer {
                     line += board.isWhitePiece(piece)? ANSI_WHITE_PIECE_COLOR + piece.getUnicod(): ANSI_BLACK_PIECE_COLOR + piece.getUnicod();
                 }
             }
-            System.out.printf("%s\n", line  + ANSI_RESET);
+            System.out.printf("%d %s %1$d\n", rank, line  + ANSI_RESET);
 
         }
+        System.out.println("   A  B  C  D  E  F  G  H");
         System.out.println();
     }
 }

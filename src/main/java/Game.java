@@ -13,7 +13,7 @@ public class Game {
         board.setPiece(new Coordinates(File.D, 4), pawnB);
         board.setPiece(new Coordinates(File.A, 3), pawn2);
 
-        pawnB.getSquareAvaibleforMove(board).stream().forEach(s-> System.out.println(s.file.name() + " " + s.rank));
+//        pawnB.getSquareAvaibleforMove(board).stream().forEach(s-> System.out.println(s.file.name() + " " + s.rank));
         renderer.render(board);
 
 

@@ -11,17 +11,13 @@ public abstract class Piece {
     public String getUnicod() {
         return unicod;
     }
-
-
     public Piece(Color color, Coordinates coordinates) {
         this.color = color;
         this.coordinates = coordinates;
     }
-
     public boolean isSquareAvaibleforMove(Coordinates coordinates, Board board) {
               return board.isSquareEmpty(coordinates);
           }
-
     protected abstract Set<CoordinatesShift> getPieceMove(Board board);
 
     public   Set<Coordinates> getSquareAvaibleforMove(Board board){
