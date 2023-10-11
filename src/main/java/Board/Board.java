@@ -2,6 +2,9 @@ package Board;
 
 import Pieces.*;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 public class Board {
     HashMap<Coordinates, Piece> pieces = new HashMap<>();
@@ -52,12 +55,20 @@ public class Board {
                 removePiece(coordinatesB);
                 setPiece(coordinatesB, new Queen(Color.Black, coordinatesB));
             }
-
         }
     }
     public void movePiece(Coordinates from, Coordinates to){
         Piece piece =  getPiece(from);
         removePiece(from);
         setPiece(to, piece);
+    }
+
+    public Set<Coordinates> getAllPiecesColor(Color color){
+        Set<Coordinates> PiecesCoordinates = new HashSet<>();
+        for (Map.Entry<Coordinates, Piece> pair : pieces.entrySet()){
+            Coordinates coordinates1 = pair.getKey();
+            if (!isSquareEmpty(coordinates1) && getPiece(coordinates1).color == color) PiecesCoordinates.add(coordinates1);
+        }
+        return PiecesCoordinates;
     }
 }
