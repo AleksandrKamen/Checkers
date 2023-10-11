@@ -26,9 +26,7 @@ public class InputCoordinates {
             int rank = Character.getNumericValue(line.charAt(1));
 
             return new Coordinates(file, rank);
-
         }
-
     }
 
     public static Coordinates inputPieceCoordinatesforColors(Color color, Board board) {

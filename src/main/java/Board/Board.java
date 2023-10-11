@@ -1,24 +1,36 @@
 package Board;
 
 import Pieces.*;
-
 import java.util.*;
-
-
 public class Board {
+
     private final int countPiecec = 12;
     HashMap<Coordinates, Piece> pieces = new HashMap<>();
+
     int WhiteRemoveCount = 0, BlackRemoveCount = 0;
+    public int getCountPiecec() {
+        return countPiecec;
+    }
+    public int getWhiteRemoveCount() {
+        return WhiteRemoveCount;
+    }
+    public int getBlackRemoveCount() {
+        return BlackRemoveCount;
+    }
 
     public void setPiece(Coordinates coordinates, Piece piece) {
         piece.coordinates = coordinates;
         pieces.put(coordinates, piece);
     }
-
     public void removePiece(Coordinates coordinates) {
         pieces.remove(coordinates);
     }
-
+    public void setWhiteRemoveCount(int whiteRemoveCount) {
+        WhiteRemoveCount = whiteRemoveCount;
+    }
+    public void setBlackRemoveCount(int blackRemoveCount) {
+        BlackRemoveCount = blackRemoveCount;
+    }
     public void setDefaultPiecesPosition() {
         for (File file : File.values()) {
             if (file.ordinal() % 2 == 0) {
