@@ -8,6 +8,7 @@ public class BoardConsoleRenderer {
     private static final String ANSI_BLACK_PIECE_COLOR = "\u001B[30m";
     private static final String ANSI_WHITE_SQUARE_BACKGROUND = "\u001B[47m";
     private static final String ANSI_BLACK_SQUARE_BACKGROUND = "\u001B[0;100m";
+//    private static final String ANSI_GREEN_COLOR =  "\033[42m";
 //    public static final String ANSI_HIGHTLIGHTED_SQUAR_BACKGROUND = "\u001B[45m";
 
     public void render(Board board) {

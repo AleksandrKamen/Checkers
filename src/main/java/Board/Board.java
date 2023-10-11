@@ -4,12 +4,12 @@ import Pieces.*;
 import java.util.*;
 public class Board {
 
-    private final int countPiecec = 12;
+    private final int countALLPiecec = 12;
     HashMap<Coordinates, Piece> pieces = new HashMap<>();
 
     int WhiteRemoveCount = 0, BlackRemoveCount = 0;
-    public int getCountPiecec() {
-        return countPiecec;
+    public int getCountALLPiecec() {
+        return countALLPiecec;
     }
     public int getWhiteRemoveCount() {
         return WhiteRemoveCount;
@@ -81,8 +81,8 @@ public class Board {
         removePiece(from);
         setPiece(to, piece);
         getCoordinatesBetweenSquare(from, to).stream().forEach(c -> removePiece(c));
-        WhiteRemoveCount = countPiecec - getAllPiecesColor(Color.White).size();
-        BlackRemoveCount = countPiecec - getAllPiecesColor(Color.Black).size();
+        WhiteRemoveCount = countALLPiecec - getAllPiecesColor(Color.White).size();
+        BlackRemoveCount = countALLPiecec - getAllPiecesColor(Color.Black).size();
     }
 
     public Set<Coordinates> getAllPiecesColor(Color color) {

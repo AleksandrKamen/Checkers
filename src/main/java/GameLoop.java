@@ -1,8 +1,6 @@
 import Board.*;
 import Pieces.*;
 
-import java.util.Set;
-
 public class GameLoop {
     private final Board board;
     private  BoardConsoleRenderer renderer = new BoardConsoleRenderer();
@@ -30,9 +28,9 @@ public class GameLoop {
             board.movePiece(sourseCoordinates, targetCoordinates);
             board.setQueen();
             isWhitetoMove =! isWhitetoMove;
-            if (board.getBlackRemoveCount() == board.getCountPiecec() || board.getWhiteRemoveCount() == board.getCountPiecec()){
+            if (board.getBlackRemoveCount() == board.getCountALLPiecec() || board.getWhiteRemoveCount() == board.getCountALLPiecec()){
                 renderer.render(board);
-                String s = board.getBlackRemoveCount() == board.getCountPiecec()?"White":"Black";
+                String s = board.getBlackRemoveCount() == board.getCountALLPiecec()?"White":"Black";
                 System.out.printf("White %s!",s);
                 break;
             }
