@@ -11,7 +11,7 @@ public class BoardConsoleRenderer {
 //    public static final String ANSI_HIGHTLIGHTED_SQUAR_BACKGROUND = "\u001B[45m";
 
     public void render(Board board){
-        // format = background color + font color + text
+        // format = background color + font color + text + reset
         System.out.println("   A  B  C  D  E  F  G  H");
         for (int rank = 8; rank >= 1; rank--) {
             String line = "";

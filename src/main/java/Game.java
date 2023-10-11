@@ -6,14 +6,16 @@ public class Game {
     public static void main(String[] args) {
         Board board = new Board();
         BoardConsoleRenderer renderer = new BoardConsoleRenderer();
-        Pawn pawn = new Pawn(Color.White, new Coordinates(File.G, 7));
-        Pawn pawn2 = new Pawn(Color.White, new Coordinates(File.A, 3));
-        Pawn pawnB = new Pawn(Color.Black, new Coordinates(File.D, 4));
-        board.setPiece(new Coordinates(File.G, 7), pawn);
-        board.setPiece(new Coordinates(File.D, 4), pawnB);
-        board.setPiece(new Coordinates(File.A, 3), pawn2);
-
-//        pawnB.getSquareAvaibleforMove(board).stream().forEach(s-> System.out.println(s.file.name() + " " + s.rank));
+        Queen pawn = new Queen(Color.White, new Coordinates(File.A, 1));
+        board.setPiece(new Coordinates(File.A, 1), pawn);
+//        board.setPiece(new Coordinates(File.F, 6), new Pawn(Color.Black, new Coordinates(File.F, 6)));
+        board.setPiece(new Coordinates(File.E, 5), new Pawn(Color.Black, new Coordinates(File.E, 5)));
+        board.setPiece(new Coordinates(File.F, 6), new Pawn(Color.Black, new Coordinates(File.F, 6)));
+        board.setPiece(new Coordinates(File.B, 2), new Pawn(Color.White, new Coordinates(File.B, 2)));
+        board.setQueen();
+        Queen queen = (Queen) board.getPiece(new Coordinates(File.A ,1));
+        queen.getSquareAvaibleforMove(board);
+        queen.getSquareAvaibleforMove(board).stream().forEach(i-> System.out.println(i.file + " " + i.rank));
         renderer.render(board);
 
 

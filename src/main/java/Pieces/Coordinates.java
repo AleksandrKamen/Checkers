@@ -25,10 +25,10 @@ public class Coordinates {
         return Objects.hash(file, rank);
     }
 
-    public Coordinates shift(CoordinatesShift coordinatesShift){ // Получить новые координаты
+    public Coordinates shift(CoordinatesShift coordinatesShift){
         return new Coordinates(File.values()[this.file.ordinal() + coordinatesShift.fileShift], this.rank + coordinatesShift.rankShift);
     }
-    public boolean canShift(CoordinatesShift coordinatesShift){ // Проверяем что при передвижении не выйдем за границу поля
+    public boolean canShift(CoordinatesShift coordinatesShift){
         int f = file.ordinal() + coordinatesShift.fileShift;
         int r = this.rank + coordinatesShift.rankShift;
         if ((f < 0) || (f > 7)) return false;
