@@ -1,13 +1,12 @@
 package Board;
 
 import Pieces.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+
 
 public class Board {
     HashMap<Coordinates, Piece> pieces = new HashMap<>();
+    int WhiteRemoveCount = 0, BlackRemoveCount = 0;
 
     public void setPiece(Coordinates coordinates, Piece piece){
         piece.coordinates = coordinates;

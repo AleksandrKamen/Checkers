@@ -12,6 +12,7 @@ public class BoardConsoleRenderer {
 
     public void render(Board board){
         // format = background color + font color + text + reset
+//        System.out.println("●".repeat());
         System.out.println("   A  B  C  D  E  F  G  H");
         for (int rank = 8; rank >= 1; rank--) {
             String line = "";
