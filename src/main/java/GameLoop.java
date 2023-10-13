@@ -26,7 +26,7 @@ public class GameLoop {
                 Coordinates sourseCoordinates = InputCoordinates.inputPieceCoordinatesforColors(isWhitetoMove ? Color.White : Color.Black, board);
                 Piece piece = board.getPiece(sourseCoordinates);
                 var avaibleMoveSquare = piece.getSquareAvaibleforMove(board);
-                renderer.render(board);
+                renderer.render(board,sourseCoordinates);
                 Coordinates targetCoordinates = InputCoordinates.inputAvaibleSquare(avaibleMoveSquare);
                 board.movePiece(sourseCoordinates, targetCoordinates);
                 board.setQueen();
@@ -45,4 +45,6 @@ public class GameLoop {
         }
         return false;
     }
+
+
 }
