@@ -22,7 +22,7 @@ public class GameLoop {
             while (true) {
                 if (isWhitetoMove) System.out.println("White to move");
                 else System.out.println("Black to move");
-                renderer.render(board);
+                renderer.render(board,isWhitetoMove);
                 Coordinates sourseCoordinates = Inputs.inputPieceCoordinatesforColors(isWhitetoMove ? Color.White : Color.Black, board);
                 Piece piece = board.getPiece(sourseCoordinates);
                 var avaibleMoveSquare = piece.getSquareAvaibleforMove(board);
@@ -38,7 +38,7 @@ public class GameLoop {
 
     private boolean isGameOver() {
         if (board.getBlackRemoveCount() == board.getCountALLPiecec() || board.getWhiteRemoveCount() == board.getCountALLPiecec()) {
-            renderer.render(board);
+            renderer.render(board );
             String s = board.getBlackRemoveCount() == board.getCountALLPiecec() ? "White" : "Black";
             renderer.GameoverRender();
             System.out.printf("%s won!\s", s);
