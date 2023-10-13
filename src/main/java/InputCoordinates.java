@@ -53,9 +53,9 @@ public class InputCoordinates {
     public static String startOrNot(){
         System.out.println("Do you want to start? Please enter: yeas or not");
         while (true){
-            String line = scanner.nextLine().toUpperCase();
-             if (line.equals("yeas") || line.equals("not")){
-                 System.out.println("Invalid format");
+            String line = scanner.nextLine();
+             if (!line.equalsIgnoreCase("yeas") && !line.equalsIgnoreCase("not")){
+                 System.out.println("Invalid format, please enter: yeas or not");
                  continue;
              }
            return line;

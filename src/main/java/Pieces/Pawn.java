@@ -1,7 +1,5 @@
 package Pieces;
-
 import Board.Board;
-
 import java.util.HashSet;
 import java.util.Set;
 
