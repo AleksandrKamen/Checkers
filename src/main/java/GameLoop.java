@@ -31,14 +31,18 @@ public class GameLoop {
                 board.movePiece(sourseCoordinates, targetCoordinates);
                 board.setQueen();
                 isWhitetoMove = !isWhitetoMove;
-                if (board.getBlackRemoveCount() == board.getCountALLPiecec() || board.getWhiteRemoveCount() == board.getCountALLPiecec()) {
-                    renderer.render(board);
-                    String s = board.getBlackRemoveCount() == board.getCountALLPiecec() ? "White" : "Black";
-                    System.out.printf("White %s!", s);
-                    break;
-                }
+                if (isGameOver()) break;
             }
         }
         System.out.println( "\033[0;31m" + "GAME OVER" +"\u001B[0m");
+    }
+    private boolean isGameOver(){
+        if (board.getBlackRemoveCount() == board.getCountALLPiecec() || board.getWhiteRemoveCount() == board.getCountALLPiecec()) {
+            renderer.render(board);
+            String s = board.getBlackRemoveCount() == board.getCountALLPiecec() ? "White" : "Black";
+            System.out.printf("White %s!", s);
+            return true;
+        }
+        return false;
     }
 }
