@@ -11,22 +11,23 @@ public class GameLoop {
 
     public void loop() {
         while (true) {
-            if (InputCoordinates.startOrNot().equals("not"))
+            if (Inputs.startOrNot().equals("not"))
                 break;
             board.setBlackRemoveCount(0);
             board.setWhiteRemoveCount(0);
-            boolean isWhitetoMove = true;
             board.setDefaultPiecesPosition();
+            boolean isWhitetoMove = true;
+
 
             while (true) {
                 if (isWhitetoMove) System.out.println("White to move");
                 else System.out.println("Black to move");
                 renderer.render(board);
-                Coordinates sourseCoordinates = InputCoordinates.inputPieceCoordinatesforColors(isWhitetoMove ? Color.White : Color.Black, board);
+                Coordinates sourseCoordinates = Inputs.inputPieceCoordinatesforColors(isWhitetoMove ? Color.White : Color.Black, board);
                 Piece piece = board.getPiece(sourseCoordinates);
                 var avaibleMoveSquare = piece.getSquareAvaibleforMove(board);
                 renderer.render(board, sourseCoordinates, avaibleMoveSquare);
-                Coordinates targetCoordinates = InputCoordinates.inputAvaibleSquare(avaibleMoveSquare);
+                Coordinates targetCoordinates = Inputs.inputAvaibleSquare(avaibleMoveSquare);
                 board.movePiece(sourseCoordinates, targetCoordinates);
                 board.setQueen();
                 isWhitetoMove = !isWhitetoMove;

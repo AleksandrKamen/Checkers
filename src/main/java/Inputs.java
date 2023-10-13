@@ -6,7 +6,7 @@ import java.util.Set;
 
 import Board.Board;
 
-public class InputCoordinates {
+public class Inputs {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static Coordinates input() {
