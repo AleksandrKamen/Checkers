@@ -50,6 +50,17 @@ public class InputCoordinates {
             return coordinates;
         }
     }
+    public static String startOrNot(){
+        System.out.println("Do you want to start? Please enter: yeas or not");
+        while (true){
+            String line = scanner.nextLine().toUpperCase();
+             if (line.equals("yeas") || line.equals("not")){
+                 System.out.println("Invalid format");
+                 continue;
+             }
+           return line;
+        }
+    }
 
     public static Coordinates inputAvaibleSquare(Set<Coordinates> coordinates){
         while (true){
