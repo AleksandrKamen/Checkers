@@ -49,7 +49,7 @@ public class BoardConsoleRenderer {
         Set<Coordinates> availableForPick = new HashSet<>();
         Color color1 = color?Color.White:Color.Black;
          availableForPick =  board.getAllPiecesColor(color1).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet());
-         availableForPick = !board.mustAttack.isEmpty()?board.mustAttack:availableForPick;
+         availableForPick = !board.getMustAttack().isEmpty()?board.getMustAttack():availableForPick;
 
         renderBorder(board, Color.White);
         for (int rank = 8; rank >= 1; rank--) {

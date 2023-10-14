@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.30'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
@@ -28,5 +29,5 @@ jar{
     }
 }
 wrapper {
-    gradleVersion = '8.4'
+    gradleVersion = '8.3'
 }

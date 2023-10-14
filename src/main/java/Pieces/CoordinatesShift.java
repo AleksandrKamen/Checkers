@@ -1,8 +1,10 @@
 package Pieces;
 
+import lombok.Getter;
+
 public class CoordinatesShift {
-    public final int fileShift;
-    public final int rankShift;
+    @Getter private final int fileShift;
+    @Getter private final int rankShift;
 
     public CoordinatesShift(int fileShift, int rankShift) {
         this.fileShift = fileShift;

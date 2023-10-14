@@ -1,7 +1,9 @@
 package Pieces;
 
-import java.util.Objects;
+import lombok.EqualsAndHashCode;
 
+import java.util.Objects;
+@EqualsAndHashCode
 public class Coordinates {
 
   public final File file;
@@ -12,25 +14,12 @@ public class Coordinates {
         this.rank = rank;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Coordinates that = (Coordinates) o;
-        return file == that.file && Objects.equals(rank, that.rank);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(file, rank);
-    }
-
     public Coordinates shift(CoordinatesShift coordinatesShift){
-        return new Coordinates(File.values()[this.file.ordinal() + coordinatesShift.fileShift], this.rank + coordinatesShift.rankShift);
+        return new Coordinates(File.values()[this.file.ordinal() + coordinatesShift.getFileShift()], this.rank + coordinatesShift.getRankShift());
     }
     public boolean canShift(CoordinatesShift coordinatesShift){
-        int f = file.ordinal() + coordinatesShift.fileShift;
-        int r = this.rank + coordinatesShift.rankShift;
+        int f = file.ordinal() + coordinatesShift.getFileShift();
+        int r = this.rank + coordinatesShift.getRankShift();
         if ((f < 0) || (f > 7)) return false;
         if ((r < 1) || (r > 8)) return false;
         return true;

@@ -1,6 +1,7 @@
 package Pieces;
 
 import Board.*;
+import lombok.Getter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,11 +9,7 @@ import java.util.Set;
 public abstract class Piece {
     public final Color color;
     public Coordinates coordinates;
-    protected String unicod;
-
-    public String getUnicod() {
-        return unicod;
-    }
+    @Getter  protected String unicod;
 
     public Piece(Color color, Coordinates coordinates) {
         this.color = color;
@@ -43,7 +40,7 @@ public abstract class Piece {
             for (Coordinates coordinates2 : coordinatesBetweenSquare){
                 if (board.getPiece(coordinates2)!= null){
                     mustAttackSquare.add(coordinates1);
-                    board.mustAttack.add(coordinates);
+                    board.getMustAttack().add(coordinates);
                 }
             }
 
@@ -70,7 +67,7 @@ public abstract class Piece {
             for (Coordinates coordinates2 : coordinatesBetweenSquare){
                 if (board.getPiece(coordinates2)!= null){
                     mustAttackSquare.add(coordinates1);
-                    board.mustAttack.add(coordinates);
+                    board.getMustAttack().add(coordinates);
                 }
             }
 

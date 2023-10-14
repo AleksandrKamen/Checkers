@@ -1,22 +1,16 @@
 package Board;
 
 import Pieces.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.*;
 public class Board {
 
-    private final int countALLPiecec = 12;
+   @Getter private final int countALLPiecec = 12;
     private HashMap<Coordinates, Piece> pieces = new HashMap<>();
-    public Set<Coordinates> mustAttack = new HashSet<>();
-    private int WhiteRemoveCount = 0, BlackRemoveCount = 0;
-    public int getCountALLPiecec() {
-        return countALLPiecec;
-    }
-    public int getWhiteRemoveCount() {
-        return WhiteRemoveCount;
-    }
-    public int getBlackRemoveCount() {
-        return BlackRemoveCount;
-    }
+    @Getter private Set<Coordinates> mustAttack = new HashSet<>();
+    @Getter @Setter private int WhiteRemoveCount = 0, BlackRemoveCount = 0;
 
     public void setPiece(Coordinates coordinates, Piece piece) {
         piece.coordinates = coordinates;
@@ -25,12 +19,7 @@ public class Board {
     public void removePiece(Coordinates coordinates) {
         pieces.remove(coordinates);
     }
-    public void setWhiteRemoveCount(int whiteRemoveCount) {
-        WhiteRemoveCount = whiteRemoveCount;
-    }
-    public void setBlackRemoveCount(int blackRemoveCount) {
-        BlackRemoveCount = blackRemoveCount;
-    }
+
     public void setDefaultPiecesPosition() {
         for (File file : File.values()) {
             if (file.ordinal() % 2 == 0) {
