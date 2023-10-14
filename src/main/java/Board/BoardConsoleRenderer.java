@@ -22,7 +22,6 @@ public class BoardConsoleRenderer {
 
     public void render(Board board) {
         // format = background color + font color + text + reset
-        Set<Coordinates> availableForPick = new HashSet<>();
         renderBorder(board, Color.White);
         for (int rank = 8; rank >= 1; rank--) {
             String line = "";
@@ -48,8 +47,10 @@ public class BoardConsoleRenderer {
     public void render(Board board, boolean color) {
         // format = background color + font color + text + reset
         Set<Coordinates> availableForPick = new HashSet<>();
-        availableForPick =  color?board.getAllPiecesColor(Color.White).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet()):
-        board.getAllPiecesColor(Color.Black).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet());
+        Color color1 = color?Color.White:Color.Black;
+         availableForPick =  board.getAllPiecesColor(color1).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet());
+         availableForPick = !board.mustAttack.isEmpty()?board.mustAttack:availableForPick;
+
         renderBorder(board, Color.White);
         for (int rank = 8; rank >= 1; rank--) {
             String line = "";
@@ -80,7 +81,6 @@ public class BoardConsoleRenderer {
           for (Coordinates coordinates1 : board.getCoordinatesBetweenSquare(selectedCoordinates,coordinates)){
               if (board.getPiece(coordinates1)!=null) coordinatesBetween.add(coordinates1);
           }
-
         }
 
         for (int rank = 8; rank >= 1; rank--) {

@@ -47,6 +47,10 @@ public class Inputs {
                 System.out.println("Blocked piece");
                 continue;
             }
+            if (!board.mustAttack.isEmpty() && !board.mustAttack.contains(coordinates)){
+                System.out.println("You must attack");
+                continue;
+            }
             return coordinates;
         }
     }

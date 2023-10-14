@@ -5,7 +5,8 @@ import java.util.*;
 public class Board {
 
     private final int countALLPiecec = 12;
-    HashMap<Coordinates, Piece> pieces = new HashMap<>();
+    private HashMap<Coordinates, Piece> pieces = new HashMap<>();
+    public Set<Coordinates> mustAttack = new HashSet<>();
 
     int WhiteRemoveCount = 0, BlackRemoveCount = 0;
     public int getCountALLPiecec() {
