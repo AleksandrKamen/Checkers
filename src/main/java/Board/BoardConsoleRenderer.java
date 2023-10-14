@@ -45,7 +45,7 @@ public class BoardConsoleRenderer {
     public void render(Board board, boolean color) {
         // format = background color + font color + text + reset
         Set<Coordinates> availableForPick = new HashSet<>();
-        availableForPick =  color == true?board.getAllPiecesColor(Color.White).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet()):
+        availableForPick =  color?board.getAllPiecesColor(Color.White).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet()):
         board.getAllPiecesColor(Color.Black).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet());
         renderBorder(board, Color.White);
         for (int rank = 8; rank >= 1; rank--) {
