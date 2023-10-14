@@ -52,5 +52,34 @@ public abstract class Piece {
         return mustAttackSquare.isEmpty()?SquareAvaible:mustAttackSquare;
     }
 
+    public boolean isHaveAttackSquare(Board board){
+        var mustAttackSquare = new HashSet<Coordinates>();
+        var SquareAvaible = new HashSet<Coordinates>();
+        var pieceMove = getPieceMove(board);
+        for (CoordinatesShift shift : pieceMove) {
+            if (coordinates.canShift(shift)) {
+                Coordinates newCoordinates = coordinates.shift(shift);
+                if (isSquareAvaibleforMove(newCoordinates, board)) {
+                    SquareAvaible.add(newCoordinates);
+                }
+            }
+        }
+
+        for (Coordinates coordinates1 : SquareAvaible){
+            var coordinatesBetweenSquare = board.getCoordinatesBetweenSquare(coordinates, coordinates1);
+            for (Coordinates coordinates2 : coordinatesBetweenSquare){
+                if (board.getPiece(coordinates2)!= null){
+                    mustAttackSquare.add(coordinates1);
+                    board.mustAttack.add(coordinates);
+                }
+            }
+
+        }
+
+        return !mustAttackSquare.isEmpty();
+
+
+    }
+
 
 }

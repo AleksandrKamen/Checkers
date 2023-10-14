@@ -1,5 +1,11 @@
 package Pieces;
 
-public enum Color {         // Pieces.Color Figurs
-    White, Black
+public enum Color {
+    White, Black;
+
+    public Color getOtherColor(){
+         return this==White?Black:White;
+    }
 }
+
+

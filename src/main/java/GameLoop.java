@@ -29,7 +29,21 @@ public class GameLoop {
                 var avaibleMoveSquare = piece.getSquareAvaibleforMove(board);
                 renderer.render(board, sourseCoordinates, avaibleMoveSquare);
                 Coordinates targetCoordinates = Inputs.inputAvaibleSquare(avaibleMoveSquare);
+
+                int countBefore =  board.getAllPiecesColor(piece.color.getOtherColor()).size();
                 board.movePiece(sourseCoordinates, targetCoordinates);
+
+                if (countBefore != board.getAllPiecesColor(piece.color.getOtherColor()).size()){
+                    while (board.getPiece(targetCoordinates).isHaveAttackSquare(board)){
+                        piece = board.getPiece(targetCoordinates);
+                        avaibleMoveSquare = piece.getSquareAvaibleforMove(board);
+                        renderer.render(board, targetCoordinates, avaibleMoveSquare);
+                        Coordinates newTargetCoordinates = Inputs.inputAvaibleSquare(avaibleMoveSquare);
+                        board.movePiece(targetCoordinates, newTargetCoordinates);
+                        targetCoordinates = newTargetCoordinates;
+                    }
+                }
+
                 board.setQueen();
                 isWhitetoMove = !isWhitetoMove;
                 if (isGameOver()) break;

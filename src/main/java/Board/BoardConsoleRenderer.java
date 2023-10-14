@@ -117,11 +117,11 @@ public class BoardConsoleRenderer {
     public void renderBorder(Board board, Color color) {
         String borderBoard = "   A  B  C  D  E  F  G  H";
         if (color == Color.White) {
-            System.out.println("● ".repeat(board.BlackRemoveCount));
+            System.out.println("● ".repeat(board.getBlackRemoveCount()));
             System.out.println(borderBoard);
         } else {
             System.out.println(borderBoard);
-            System.out.println(ANSI_WHITE_PIECE_COLOR + "● ".repeat(board.WhiteRemoveCount) + ANSI_RESET + "\s");
+            System.out.println(ANSI_WHITE_PIECE_COLOR + "● ".repeat(board.getWhiteRemoveCount()) + ANSI_RESET + "\s");
         }
     }
 }
