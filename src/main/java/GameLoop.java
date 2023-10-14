@@ -20,6 +20,7 @@ public class GameLoop {
 
 
             while (true) {
+                board.mustAttack.clear();
                 if (isWhitetoMove) System.out.println("White to move");
                 else System.out.println("Black to move");
                 renderer.render(board,isWhitetoMove);

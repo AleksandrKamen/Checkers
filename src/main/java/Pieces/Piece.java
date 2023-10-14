@@ -41,7 +41,10 @@ public abstract class Piece {
         for (Coordinates coordinates1 : SquareAvaible){
             var coordinatesBetweenSquare = board.getCoordinatesBetweenSquare(coordinates, coordinates1);
             for (Coordinates coordinates2 : coordinatesBetweenSquare){
-                if (board.getPiece(coordinates2)!= null) mustAttackSquare.add(coordinates1);
+                if (board.getPiece(coordinates2)!= null){
+                    mustAttackSquare.add(coordinates1);
+                    board.mustAttack.add(coordinates);
+                }
             }
 
         }
