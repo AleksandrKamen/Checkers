@@ -26,7 +26,7 @@ public abstract class Piece {
     protected abstract Set<CoordinatesShift> getPieceMove(Board board);
 
     public Set<Coordinates> getSquareAvaibleforMove(Board board) {
-        var mustAttackSqyare = new HashSet<Coordinates>();
+        var mustAttackSquare = new HashSet<Coordinates>();
         var SquareAvaible = new HashSet<Coordinates>();
         var pieceMove = getPieceMove(board);
         for (CoordinatesShift shift : pieceMove) {
@@ -41,12 +41,12 @@ public abstract class Piece {
         for (Coordinates coordinates1 : SquareAvaible){
             var coordinatesBetweenSquare = board.getCoordinatesBetweenSquare(coordinates, coordinates1);
             for (Coordinates coordinates2 : coordinatesBetweenSquare){
-                if (board.getPiece(coordinates2)!= null) mustAttackSqyare.add(coordinates1);
+                if (board.getPiece(coordinates2)!= null) mustAttackSquare.add(coordinates1);
             }
 
         }
 
-        return mustAttackSqyare.isEmpty()?SquareAvaible:mustAttackSqyare;
+        return mustAttackSquare.isEmpty()?SquareAvaible:mustAttackSquare;
     }
 
 
