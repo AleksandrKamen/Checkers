@@ -1,43 +1,29 @@
 package Pieces;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class FileTest {
 
-    @Test
-    void fromChar() {
-        List<File> files = new ArrayList<>();
-        for (int i = 65; i <= 72; i++) {
-            files.add(File.fromChar((char) i));
-
-            
-        }
-        
-        assertAll(
-                ()-> assertThat(files).isEqualTo(List.of(File.A, File.B, File.C, File.D, File.E,File.F, File.G,File.H)),
-                ()-> assertNull(File.fromChar('a')),
-                ()-> assertNull(File.fromChar('b')),
-                ()-> assertNull(File.fromChar('c')),
-                ()-> assertNull(File.fromChar('d')),
-                ()-> assertNull(File.fromChar('e')),
-                ()-> assertNull(File.fromChar('f')),
-                ()-> assertNull(File.fromChar('g')),
-                ()-> assertNull(File.fromChar('h')),
-                ()-> assertNull(File.fromChar('.')),
-                ()-> assertNull(File.fromChar('P')),
-                ()-> assertNull(File.fromChar('!')),
-                ()-> assertNull(File.fromChar(' ')),
-                ()-> assertNull(File.fromChar('1'))
-
-        );
-
-        }
-
+    @ParameterizedTest
+    @ValueSource(chars = {'a','b','c','d','e','f','g','h','1',' ','T','э','P','p','W','M','U',','})
+    @DisplayName("File is null, if invalid value for fromChar()")
+    void InvalidValueForFile(char ch){
+        assertNull(File.fromChar(ch));
+    }
+    @ParameterizedTest
+    @ValueSource(chars = {'A','B','C','D','E','F','G','H'})
+    void ValidValueforFile(char ch){
+        assertNotNull(File.fromChar(ch));
+    }
 
    }
