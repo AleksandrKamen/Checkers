@@ -13,7 +13,7 @@ public class Board {
     @Getter @Setter private int WhiteRemoveCount = 0, BlackRemoveCount = 0;
 
     public void setPiece(Coordinates coordinates, Piece piece) {
-        piece.coordinates = coordinates;
+        piece.setCoordinates(coordinates);
         pieces.put(coordinates, piece);
     }
     public void removePiece(Coordinates coordinates) {

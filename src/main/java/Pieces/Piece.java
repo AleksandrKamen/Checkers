@@ -2,14 +2,15 @@ package Pieces;
 
 import Board.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Piece {
     @Getter protected final Color color;
-    public Coordinates coordinates;
-    @Getter  protected String unicod;
+    @Setter protected Coordinates coordinates;
+    @Getter protected String unicod;
 
     public Piece(Color color, Coordinates coordinates) {
         this.color = color;

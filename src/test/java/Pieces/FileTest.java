@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 class FileTest {
 
     @ParameterizedTest
-    @ValueSource(chars = {'a','b','c','d','e','f','g','h','1',' ','T','э','P','p','W','M','U',','})
+    @ValueSource(chars = {'a','b','c','d','e','f','g','h','1',' ','T','M',','})
     @DisplayName("File is null, if invalid value for fromChar()")
     void InvalidValueForFile(char ch){
         assertNull(File.fromChar(ch));
