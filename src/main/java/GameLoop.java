@@ -30,10 +30,10 @@ public class GameLoop {
                 renderer.render(board, sourseCoordinates, avaibleMoveSquare);
                 Coordinates targetCoordinates = Inputs.inputAvaibleSquare(avaibleMoveSquare);
 
-                int countBefore =  board.getAllPiecesColor(piece.getColor().getOtherColor()).size();
+                int countBefore =  board.getAllPiecesByColor(piece.getColor().getOtherColor()).size();
                 board.movePiece(sourseCoordinates, targetCoordinates);
 
-                if (countBefore != board.getAllPiecesColor(piece.getColor().getOtherColor()).size()){
+                if (countBefore != board.getAllPiecesByColor(piece.getColor().getOtherColor()).size()){
                     while (board.getPiece(targetCoordinates).isHaveAttackSquare(board)){
                         piece = board.getPiece(targetCoordinates);
                         avaibleMoveSquare = piece.getSquareAvaibleforMove(board);

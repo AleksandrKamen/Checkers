@@ -60,16 +60,8 @@ public class Board {
         }
     }
 
-    public void movePiece(Coordinates from, Coordinates to) {
-        Piece piece = getPiece(from);
-        removePiece(from);
-        setPiece(to, piece);
-        getCoordinatesBetweenSquare(from, to).stream().forEach(c -> removePiece(c));
-        WhiteRemoveCount = countALLPiecec - getAllPiecesColor(Color.White).size();
-        BlackRemoveCount = countALLPiecec - getAllPiecesColor(Color.Black).size();
-    }
 
-    public Set<Coordinates> getAllPiecesColor(Color color) {
+    public Set<Coordinates> getAllPiecesByColor(Color color) {
         var PiecesCoordinates = new HashSet<Coordinates>();
         for (Map.Entry<Coordinates, Piece> pair : pieces.entrySet()) {
             Coordinates coordinates1 = pair.getKey();
@@ -81,7 +73,7 @@ public class Board {
 
     public Set<Coordinates> getCoordinatesBetweenSquare(Coordinates from, Coordinates to) {
 
-        Set<Coordinates> between = new HashSet<>();
+        var between = new HashSet<Coordinates>();
         int firstSquareFile = from.file.ordinal();
         int firstSquareRank = from.rank;
         int diff = Math.abs(to.file.ordinal() - firstSquareFile);
@@ -91,6 +83,13 @@ public class Board {
             between.add(new Coordinates(File.values()[firstSquareFile], firstSquareRank));
         }
         return between;
-
+    }
+    public void movePiece(Coordinates from, Coordinates to) {
+        Piece piece = getPiece(from);
+        removePiece(from);
+        setPiece(to, piece);
+        getCoordinatesBetweenSquare(from, to).stream().forEach(c -> removePiece(c));
+        WhiteRemoveCount = countALLPiecec - getAllPiecesByColor(Color.White).size();
+        BlackRemoveCount = countALLPiecec - getAllPiecesByColor(Color.Black).size();
     }
 }

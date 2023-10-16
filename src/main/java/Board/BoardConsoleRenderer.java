@@ -48,7 +48,7 @@ public class BoardConsoleRenderer {
         // format = background color + font color + text + reset
         Set<Coordinates> availableForPick = new HashSet<>();
         Color color1 = color?Color.White:Color.Black;
-         availableForPick =  board.getAllPiecesColor(color1).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet());
+         availableForPick =  board.getAllPiecesByColor(color1).stream().filter(c-> !board.getPiece(c).getSquareAvaibleforMove(board).isEmpty()).collect(Collectors.toSet());
          availableForPick = !board.getMustAttack().isEmpty()?board.getMustAttack():availableForPick;
 
         renderBorder(board, Color.White);
