@@ -1,23 +1,20 @@
 package Pieces;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ColorTest {
 
-    @Test
-    void getOtherColorForWhite() {
-        Color color = null;
-        Color white = Color.White;
-        Color black = Color.Black;
-
-       assertAll(
-            ()-> assertThrows(NullPointerException.class, ()-> color.getOtherColor()),
-            ()-> assertTrue(white.getOtherColor() == Color.Black),
-            ()-> assertTrue(black.getOtherColor() == Color.White)
-       );
-
-
+    @ParameterizedTest
+    @EnumSource(value = Color.class,names = "White")
+    void getOtherColorForWhite(Color white){
+        assertTrue(white.getOtherColor() == Color.Black);
+    }
+    @ParameterizedTest
+    @EnumSource(value = Color.class,names = "Black")
+    void getOtherColorForBlack(Color black){
+        assertTrue(black.getOtherColor() == Color.White);
     }
 }
