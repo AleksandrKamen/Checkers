@@ -39,7 +39,7 @@ public class Inputs {
                 continue;
             }
             Piece piece = board.getPiece(coordinates);
-            if (piece.color != color) {
+            if (piece.getColor() != color) {
                 System.out.println("Wrong color");
                 continue;
             }

@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Piece {
-    public final Color color;
+    @Getter protected final Color color;
     public Coordinates coordinates;
     @Getter  protected String unicod;
 
@@ -74,8 +74,9 @@ public abstract class Piece {
         }
 
         return !mustAttackSquare.isEmpty();
-
-
+    }
+    public boolean isWhitePiece() {
+        return color == Color.White;
     }
 
 

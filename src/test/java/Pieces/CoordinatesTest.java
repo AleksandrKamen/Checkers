@@ -18,63 +18,62 @@ class CoordinatesTest {
     void InvalidValuesForCoordinatesShift(CoordinatesShift coordinatesShift, Coordinates coordinates) {
         assertThat(coordinates.canShift(coordinatesShift)).isEqualTo(false);
     }
+    static Stream<Arguments> getArgumentsNegative(){
+        return Stream.of(
+                //f<1
+                Arguments.of(new CoordinatesShift(-1,1), new Coordinates(File.A, 1)),
+                //f>7
+                Arguments.of(new CoordinatesShift(8,1), new Coordinates(File.A, 1)),
+                //r>8
+                Arguments.of(new CoordinatesShift(1,8), new Coordinates(File.A, 1)),
+                //r<1
+                Arguments.of(new CoordinatesShift(1,-1), new Coordinates(File.A, 1)),
+                //f<1 && rank >8
+                Arguments.of(new CoordinatesShift(-1,7), new Coordinates(File.A, 1)),
+
+                Arguments.of(new CoordinatesShift(-2,2), new Coordinates(File.B, 2)),
+                Arguments.of(new CoordinatesShift(7,2), new Coordinates(File.B, 2)),
+                Arguments.of(new CoordinatesShift(2,7), new Coordinates(File.B, 2)),
+                Arguments.of(new CoordinatesShift(2,-4), new Coordinates(File.B, 2)),
+                Arguments.of(new CoordinatesShift(-2,7), new Coordinates(File.B, 2)),
+
+
+                Arguments.of(new CoordinatesShift(-3,1), new Coordinates(File.C, 1)),
+                Arguments.of(new CoordinatesShift(6,1), new Coordinates(File.C, 1)),
+                Arguments.of(new CoordinatesShift(3,10), new Coordinates(File.C, 1)),
+                Arguments.of(new CoordinatesShift(3,-3), new Coordinates(File.C, 2)),
+                Arguments.of(new CoordinatesShift(-3,10), new Coordinates(File.C, 1)),
+
+
+                Arguments.of(new CoordinatesShift(-4,1), new Coordinates(File.D, 4)),
+                Arguments.of(new CoordinatesShift(2,6), new Coordinates(File.D, 4)),
+                Arguments.of(new CoordinatesShift(-4,6), new Coordinates(File.D, 4)),
+
+
+                Arguments.of(new CoordinatesShift(-5,5), new Coordinates(File.E, 3)),
+                Arguments.of(new CoordinatesShift(-2,7), new Coordinates(File.E, 3)),
+                Arguments.of(new CoordinatesShift(-5,8), new Coordinates(File.E, 3)),
+
+                Arguments.of(new CoordinatesShift(-6,3), new Coordinates(File.F, 4)),
+                Arguments.of(new CoordinatesShift(-2,5), new Coordinates(File.F, 6)),
+                Arguments.of(new CoordinatesShift(-6,5), new Coordinates(File.F, 4)),
+
+
+                Arguments.of(new CoordinatesShift(-7,2), new Coordinates(File.G, 3)),
+                Arguments.of(new CoordinatesShift(-3,2), new Coordinates(File.G, 7)),
+                Arguments.of(new CoordinatesShift(-7,2), new Coordinates(File.G, 7)),
+
+                Arguments.of(new CoordinatesShift(-8,1), new Coordinates(File.H, 4)),
+                Arguments.of(new CoordinatesShift(-4,5), new Coordinates(File.H, 4)),
+                Arguments.of(new CoordinatesShift(-8,5), new Coordinates(File.H, 4))
+
+        );
+    }
     @ParameterizedTest
     @MethodSource("Pieces.CoordinatesTest#getArgymentsPositive")
     @DisplayName("Valid values for Coordinates after shift")
     void ValidValuesForCoordinatesShift(CoordinatesShift coordinatesShift, Coordinates coordinates) {
         assertThat(coordinates.canShift(coordinatesShift)).isEqualTo(true);
-    }
-
-    static Stream<Arguments> getArgumentsNegative(){
-     return Stream.of(
-             //f<1
-             Arguments.of(new CoordinatesShift(-1,1), new Coordinates(File.A, 1)),
-             //f>7
-             Arguments.of(new CoordinatesShift(8,1), new Coordinates(File.A, 1)),
-             //r>8
-             Arguments.of(new CoordinatesShift(1,8), new Coordinates(File.A, 1)),
-             //r<1
-             Arguments.of(new CoordinatesShift(1,-1), new Coordinates(File.A, 1)),
-             //f<1 && rank >8
-             Arguments.of(new CoordinatesShift(-1,7), new Coordinates(File.A, 1)),
-
-             Arguments.of(new CoordinatesShift(-2,2), new Coordinates(File.B, 2)),
-             Arguments.of(new CoordinatesShift(7,2), new Coordinates(File.B, 2)),
-             Arguments.of(new CoordinatesShift(2,7), new Coordinates(File.B, 2)),
-             Arguments.of(new CoordinatesShift(2,-4), new Coordinates(File.B, 2)),
-             Arguments.of(new CoordinatesShift(-2,7), new Coordinates(File.B, 2)),
-
-
-             Arguments.of(new CoordinatesShift(-3,1), new Coordinates(File.C, 1)),
-             Arguments.of(new CoordinatesShift(6,1), new Coordinates(File.C, 1)),
-             Arguments.of(new CoordinatesShift(3,10), new Coordinates(File.C, 1)),
-             Arguments.of(new CoordinatesShift(3,-3), new Coordinates(File.C, 2)),
-             Arguments.of(new CoordinatesShift(-3,10), new Coordinates(File.C, 1)),
-
-
-             Arguments.of(new CoordinatesShift(-4,1), new Coordinates(File.D, 4)),
-             Arguments.of(new CoordinatesShift(2,6), new Coordinates(File.D, 4)),
-             Arguments.of(new CoordinatesShift(-4,6), new Coordinates(File.D, 4)),
-
-
-             Arguments.of(new CoordinatesShift(-5,5), new Coordinates(File.E, 3)),
-             Arguments.of(new CoordinatesShift(-2,7), new Coordinates(File.E, 3)),
-             Arguments.of(new CoordinatesShift(-5,8), new Coordinates(File.E, 3)),
-
-             Arguments.of(new CoordinatesShift(-6,3), new Coordinates(File.F, 4)),
-             Arguments.of(new CoordinatesShift(-2,5), new Coordinates(File.F, 6)),
-             Arguments.of(new CoordinatesShift(-6,5), new Coordinates(File.F, 4)),
-
-
-             Arguments.of(new CoordinatesShift(-7,2), new Coordinates(File.G, 3)),
-             Arguments.of(new CoordinatesShift(-3,2), new Coordinates(File.G, 7)),
-             Arguments.of(new CoordinatesShift(-7,2), new Coordinates(File.G, 7)),
-
-             Arguments.of(new CoordinatesShift(-8,1), new Coordinates(File.H, 4)),
-             Arguments.of(new CoordinatesShift(-4,5), new Coordinates(File.H, 4)),
-             Arguments.of(new CoordinatesShift(-8,5), new Coordinates(File.H, 4))
-
-     );
     }
     static Stream<Arguments> getArgymentsPositive(){
      return Stream.of(

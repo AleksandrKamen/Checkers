@@ -35,7 +35,7 @@ public class BoardConsoleRenderer {
                     line += "  ";
                 } else {
                     Piece piece = board.getPiece(coordinates);
-                    line += board.isWhitePiece(piece) ? ANSI_WHITE_PIECE_COLOR + piece.getUnicod() : ANSI_BLACK_PIECE_COLOR + piece.getUnicod();
+                    line += piece.isWhitePiece() ? ANSI_WHITE_PIECE_COLOR + piece.getUnicod() : ANSI_BLACK_PIECE_COLOR + piece.getUnicod();
                 }
             }
             System.out.printf("%d %s %1$d\n", rank, line + ANSI_RESET);
@@ -64,7 +64,7 @@ public class BoardConsoleRenderer {
                     line += "  ";
                 } else {
                     Piece piece = board.getPiece(coordinates);
-                    line += availableForPick.contains(coordinates)?ANSI_YELLOW_PIECE_COLOR+piece.getUnicod(): board.isWhitePiece(piece) ? ANSI_WHITE_PIECE_COLOR + piece.getUnicod() : ANSI_BLACK_PIECE_COLOR + piece.getUnicod();
+                    line += availableForPick.contains(coordinates)?ANSI_YELLOW_PIECE_COLOR+piece.getUnicod(): piece.isWhitePiece() ? ANSI_WHITE_PIECE_COLOR + piece.getUnicod() : ANSI_BLACK_PIECE_COLOR + piece.getUnicod();
                 }
             }
             System.out.printf("%d %s %1$d\n", rank, line + ANSI_RESET);
@@ -101,7 +101,7 @@ public class BoardConsoleRenderer {
                     line += "  ";
                 } else {
                     Piece piece = board.getPiece(coordinates);
-                    line += coordinates.equals(selectedCoordinates) ? ANSI_GREEN_PIECE_COLOR + piece.getUnicod() : board.isWhitePiece(piece) ? ANSI_WHITE_PIECE_COLOR + piece.getUnicod() : ANSI_BLACK_PIECE_COLOR + piece.getUnicod();
+                    line += coordinates.equals(selectedCoordinates) ? ANSI_GREEN_PIECE_COLOR + piece.getUnicod() : piece.isWhitePiece() ? ANSI_WHITE_PIECE_COLOR + piece.getUnicod() : ANSI_BLACK_PIECE_COLOR + piece.getUnicod();
                 }
             }
             System.out.printf("%d %s %1$d\n", rank, line + ANSI_RESET);

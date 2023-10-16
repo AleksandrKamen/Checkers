@@ -8,7 +8,7 @@ import java.util.*;
 public class Board {
 
    @Getter private final int countALLPiecec = 12;
-    private HashMap<Coordinates, Piece> pieces = new HashMap<>();
+   @Getter private HashMap<Coordinates, Piece> pieces = new HashMap<>();
     @Getter private Set<Coordinates> mustAttack = new HashSet<>();
     @Getter @Setter private int WhiteRemoveCount = 0, BlackRemoveCount = 0;
 
@@ -41,24 +41,19 @@ public class Board {
     public boolean isSquareEmpty(Coordinates coordinates) {
         return !pieces.containsKey(coordinates);
     }
-
     public boolean isSquareBlack(Coordinates coordinates) {
         return (((coordinates.file.ordinal() + 1) + coordinates.rank) % 2) == 0;
-    }
-
-    public boolean isWhitePiece(Piece piece) {
-        return piece.color == Color.White;
     }
 
     public void setQueen() {
         for (File file : File.values()) {
             Coordinates coordinatesW = new Coordinates(file, 8);
-            if (!isSquareEmpty(coordinatesW) && getPiece(coordinatesW).color == Color.White) {
+            if (!isSquareEmpty(coordinatesW) && getPiece(coordinatesW).getColor() == Color.White) {
                 removePiece(coordinatesW);
                 setPiece(coordinatesW, new Queen(Color.White, coordinatesW));
             }
             Coordinates coordinatesB = new Coordinates(file, 1);
-            if (!isSquareEmpty(coordinatesB) && getPiece(coordinatesB).color == Color.Black) {
+            if (!isSquareEmpty(coordinatesB) && getPiece(coordinatesB).getColor() == Color.Black) {
                 removePiece(coordinatesB);
                 setPiece(coordinatesB, new Queen(Color.Black, coordinatesB));
             }
@@ -78,7 +73,7 @@ public class Board {
         var PiecesCoordinates = new HashSet<Coordinates>();
         for (Map.Entry<Coordinates, Piece> pair : pieces.entrySet()) {
             Coordinates coordinates1 = pair.getKey();
-            if (!isSquareEmpty(coordinates1) && getPiece(coordinates1).color == color)
+            if (!isSquareEmpty(coordinates1) && getPiece(coordinates1).getColor() == color)
                 PiecesCoordinates.add(coordinates1);
         }
         return PiecesCoordinates;
