@@ -1,13 +1,11 @@
 import Board.*;
 import Pieces.*;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class GameLoop {
     private final Board board;
     private BoardConsoleRenderer renderer = new BoardConsoleRenderer();
-
-    public GameLoop(Board board) {
-        this.board = board;
-    }
 
     public void loop() {
         while (true) {

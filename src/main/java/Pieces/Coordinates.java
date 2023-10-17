@@ -1,18 +1,15 @@
 package Pieces;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 
 import java.util.Objects;
 @EqualsAndHashCode
+@AllArgsConstructor
 public class Coordinates {
 
   public final File file;
   public final Integer rank;
-
-    public Coordinates(File file, Integer rank) {
-        this.file = file;
-        this.rank = rank;
-    }
 
     public Coordinates shift(CoordinatesShift coordinatesShift){
         return new Coordinates(File.values()[this.file.ordinal() + coordinatesShift.getFileShift()], this.rank + coordinatesShift.getRankShift());
