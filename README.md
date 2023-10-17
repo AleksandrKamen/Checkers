@@ -9,5 +9,5 @@
 Взаимодействие с пользователем реализовано через выбор ячейки.  Доступные для выбора шашки подсвечиваются желтым цветом. 
 ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок.PNG)  
 При доступном для атаки ходе, он является обязательным. После выбора ячейки, зеленым подсвечиваются доступные варианты, красным – уничтожаемые шашки противника   
-![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок.PNG)  ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок2.PNG)  
+![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок2.PNG)  
 ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок3.PNG)  
