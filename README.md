@@ -7,10 +7,14 @@
 
 #                                                        Пользовательский интерфейс  и возможности 
 Взаимодействие с пользователем реализовано через выбор ячейки.  Доступные для выбора шашки подсвечиваются желтым цветом. 
-![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок.PNG)  
+                                  ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок.PNG)  
 При доступном для атаки ходе, он является обязательным. После выбора ячейки, зеленым подсвечиваются доступные варианты, красным – уничтожаемые шашки противника   
-![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок2.PNG)  
-![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок3.PNG)  
+                                 ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок2.PNG)  
+                                 ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок3.PNG)  
 Если после уничтожения вражеской шашки доступно еще одно уничтожение – ход продолжается.
-![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок4.PNG)  
-![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок5.PNG)  
+                                  ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок4.PNG)  
+                                   ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок5.PNG)  
+При достижении шашкой границы поля – она превращается в дамку.
+                                   ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок6.PNG) 
+При уничтожении всех вражеских фигур – игра заканчивается. Игровой цикл предлагается повторить заново.
+                                  ![Image alt](https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок7.PNG) 
