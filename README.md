@@ -1,5 +1,5 @@
 #                                                              Обзор проекта (Checkers)
-<p align="center"> <img width="800" height="800" src="https://github.com/AleksandrKamen/Checkers/blob/master/Demo/Снимок"> </p>
+<p align="center"> <img width="800" height="800" src="https://github.com/AleksandrKamen/Checkers/blob/master/Demo/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA.PNG"> </p>
 
 **Мотивация проекта** - Демонстрация принципов дизайна архитектуры приложения с помощью ООП, использование Gradle для сборки проекта, применение Junit5 для проведения тестов.
 
